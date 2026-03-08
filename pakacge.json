@@ -1,0 +1,8 @@
+{
+  "name": "aplikasi-test-satpam",
+  "version": "1.0.0",
+  "description": "Simulasi aplikasi rentan untuk testing Trivy",
+  "dependencies": {
+    "lodash": "4.17.10" 
+  }
+}
