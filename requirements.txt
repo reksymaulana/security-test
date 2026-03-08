@@ -1,0 +1,2 @@
+# ✅ CLEAN: Menggunakan library versi baru yang aman
+requests>=2.31.0

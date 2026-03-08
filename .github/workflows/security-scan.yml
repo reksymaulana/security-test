@@ -1,0 +1,22 @@
+name: Satpam Otomatis (Security Scan)
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  pengecekan-keamanan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Ambil Kode Repository
+        uses: actions/checkout@v4
+
+      - name: 🕵️‍♂️ Mulai Scanning Keamanan
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scanners: 'vuln,secret'
+          severity: 'HIGH,CRITICAL'
+          format: 'table'
+          exit-code: '1'
