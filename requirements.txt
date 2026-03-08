@@ -1,2 +1,5 @@
 Django==3.1.1
 urllib3==1.25.10
+
+# ❌ VULN: Menggunakan library versi jadul yang sudah diketahui punya celah keamanan (CVE)
+requests==2.20.0
