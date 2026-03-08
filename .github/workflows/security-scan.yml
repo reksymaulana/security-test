@@ -2,10 +2,10 @@ name: Satpam Otomatis (Security Scan)
 
 # 1. KAPAN SATPAM INI BEKERJA?
 on:
-  push:
-    branches: [ "main" ] # Bekerja setiap kali ada kode yang di-push ke branch 'main'
   pull_request:
-    branches: [ "main" ] # Bekerja saat ada permintaan menggabungkan kode (Pull Request)
+    branches: [ "main" ] # Hanya bekerja saat ada yang meminta menggabungkan kode (Pull Request) ke 'main'
+    
+# (Hapus bagian "push: branches: [ 'main' ]" yang sebelumnya ada di sini)
 
 # 2. APA YANG HARUS DILAKUKAN SATPAM?
 jobs:
