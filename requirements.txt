@@ -1,3 +1,2 @@
-# File: requirements.txt
-# Satpam akan mendeteksi library usang yang punya banyak celah ini
-Django==3.1.1
+# ✅ CLEAN: Menggunakan library versi baru yang aman
+requests>=2.31.0

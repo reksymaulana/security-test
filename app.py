@@ -1,7 +1,6 @@
-# File: app.py
+import os
+
 def connect_to_server():
-    # Satpam akan mendeteksi kunci palsu ini dan membunyikan alarm
-    private_key = """-----BEGIN RSA PRIVATE KEY-----
-MIIEpQIBAAKCAQEA3Tz2mr7SZiAMfQyA2X8Zz1... 
------END RSA PRIVATE KEY-----"""
-    print("Mencoba koneksi...")
+    # ✅ CLEAN: Kunci diambil dari brankas sistem, bukan ditulis langsung di kode
+    private_key = os.getenv("SERVER_PRIVATE_KEY")
+    print("Mencoba koneksi dengan aman...")
