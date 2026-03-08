@@ -1,0 +1,27 @@
+name: Satpam Otomatis (Security Scan)
+
+# 1. KAPAN SATPAM INI BEKERJA?
+on:
+  push:
+    branches: [ "main" ] # Bekerja setiap kali ada kode yang di-push ke branch 'main'
+  pull_request:
+    branches: [ "main" ] # Bekerja saat ada permintaan menggabungkan kode (Pull Request)
+
+# 2. APA YANG HARUS DILAKUKAN SATPAM?
+jobs:
+  pengecekan-keamanan:
+    runs-on: ubuntu-latest # Menjalankan proses ini di komputer virtual (server) Linux Ubuntu
+
+    steps:
+      # Langkah A: Mengambil kode kamu dari GitHub untuk diperiksa
+      - name: 📥 Ambil Kode Repository
+        uses: actions/checkout@v4
+
+      # Langkah B: Melakukan proses scan keamanan menggunakan alat bernama 'Trivy'
+      - name: 🕵️‍♂️ Mulai Scanning Keamanan
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs' # Memeriksa file sistem (kode sumbermu)
+          scanners: 'vuln,secret' # Yang dicek: celah bahaya (vulnerability) & rahasia yang bocor (seperti password/API key)
+          severity: 'HIGH,CRITICAL' # Hanya tegur jika ketemu bahaya tingkat 'Tinggi' dan 'Kritis'
+          format: 'table' # Menampilkan hasil laporan berbentuk tabel agar rapi
