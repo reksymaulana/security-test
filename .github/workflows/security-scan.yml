@@ -25,3 +25,9 @@ jobs:
           scanners: 'vuln,secret' # Yang dicek: celah bahaya (vulnerability) & rahasia yang bocor (seperti password/API key)
           severity: 'HIGH,CRITICAL' # Hanya tegur jika ketemu bahaya tingkat 'Tinggi' dan 'Kritis'
           format: 'table' # Menampilkan hasil laporan berbentuk tabel agar rapi
+          exit-code: '1' # Jika ketemu masalah, proses ini akan berhenti dan memberi tahu kamu
+          fail-on: 'vuln' # Hanya gagal jika ketemu celah bahaya, bukan hanya rahasia bocor
+          output: 'scan-result.txt' # Simpan hasil scan ke file teks untuk dilihat nanti
+      # Langkah C: Menampilkan hasil scan di log GitHub Actions
+      - name: 📊 Tampilkan Hasil Scan
+        run: cat scan-result.txt # Menampilkan isi file hasil scan di log untuk kamu lihat langsung
